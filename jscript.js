@@ -181,38 +181,21 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach((section) => observer.observe(section));
     }
 
-    // Contact form confirmation and clearing
-    // Note: this does not send an actual email.
-    if (contactForm) {
-        contactForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+    // Contact 
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
+        alert("Your message has been submitted.");
 
-            const successMessage = translations.formSuccess;
+        contactForm.reset();
 
-            // Display confirmation on the webpage.
-            if (formStatus) {
-                formStatus.textContent = successMessage;
-                formStatus.setAttribute("role", "status");
-                formStatus.setAttribute("aria-live", "polite");
-            }
-
-            // Display confirmation alert.
-            alert(successMessage);
-
-            // Clear all form fields.
-            contactForm.reset();
-
-            // Keep the success message visible after resetting.
-            if (formStatus) {
-                formStatus.textContent = successMessage;
-            }
-        });
-    }
+        if (formStatus) {
+            formStatus.textContent =
+                "Your message has been submitted.";
+        }
+    });
+}
 
     // Warn about placeholder project links
     document.querySelectorAll("[data-project-link]").forEach((link) => {
