@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,46 +14,43 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="header">
-        <a href="#home" class="logo" data-i18n="siteTitle">My Personal Portfolio</a>
+        <a href="#home" class="logo">My Personal Portfolio</a>
 
         <button class="menu-button" id="menu-button" type="button"
-                aria-label="Open navigation" aria-expanded="false" aria-controls="navbar">
+                aria-label="Open navigation" aria-expanded="false"
+                aria-controls="navbar">
             <span aria-hidden="true">☰</span>
         </button>
 
         <nav class="navbar" id="navbar" aria-label="Main navigation">
-            <a href="#home" data-i18n="navHome">Home</a>
-            <a href="#about" data-i18n="navAbout">About</a>
-            <a href="#skills" data-i18n="navSkills">Skills</a>
-            <a href="#projects" data-i18n="navProjects">Projects</a>
-            <a href="#contact" data-i18n="navContact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
 
         <div class="settings-wrap">
-             <div class="settings-wrap">
-    <button class="settings-button" id="settings-button" type="button"
-            aria-label="Open website settings"
-            aria-expanded="false"
-            aria-controls="settings-menu">
-        <span aria-hidden="true">☰</span>
-    </button>
-            <div class="settings-menu" id="settings-menu" hidden>
-                <p class="settings-heading" data-i18n="settingsTitle">Website Settings</p>
+            <button class="settings-button" id="settings-button"
+                    type="button" aria-label="Open website settings"
+                    aria-expanded="false" aria-controls="settings-menu">
+                <span aria-hidden="true">☰</span>
+            </button>
 
-                <label for="language-select" data-i18n="languageLabel">Language</label>
-                <select id="language-select">
-                    <option value="en">English</option>
-                </select>
+            <div class="settings-menu" id="settings-menu" hidden>
+                <p class="settings-heading">Website Settings</p>
 
                 <div class="theme-row">
-                    <span data-i18n="themeLabel">Light mode</span>
-                    <button class="theme-toggle" id="theme-toggle" type="button"
-                            role="switch" aria-checked="false" aria-label="Toggle light mode">
+                    <span>Light mode</span>
+                    <button class="theme-toggle" id="theme-toggle"
+                            type="button" role="switch"
+                            aria-checked="false" aria-label="Toggle light mode">
                         <span class="theme-toggle-knob"></span>
                     </button>
                 </div>
 
-                <a class="settings-contact" href="#contact" id="settings-contact" data-i18n="contactShortcut">Send a message</a>
+                <a class="settings-contact" href="#contact"
+                   id="settings-contact">Send a message</a>
             </div>
         </div>
     </header>
@@ -60,37 +58,41 @@
     <main id="main-content">
         <section class="hero" id="home">
             <div class="hero-text">
-                <p class="eyebrow" data-i18n="heroEyebrow">HELLO, WELCOME TO MY PORTFOLIO</p>
-                <h1><span data-i18n="heroIntro">Hi, I'm</span> <span class="accent-name">Jaira Yvonne A. Watan</span></h1>
-                <h2 data-i18n="heroCourse">BS in Information Technology</h2>
-                <p data-i18n="heroDescription">I am an IT student who enjoys learning about technology, designing websites, and developing my programming skills.</p>
-                <a href="#projects" class="button" data-i18n="heroButton">Explore My Projects <span aria-hidden="true">↗</span></a>
+                <p class="eyebrow">HELLO, WELCOME TO MY PORTFOLIO</p>
+                <h1>Hi, I'm <span class="accent-name">Jaira Yvonne A. Watan</span></h1>
+                <h2>BS in Information Technology</h2>
+                <p>I am an IT student who enjoys learning about technology, designing websites, and developing my programming skills.</p>
+                <a href="#projects" class="button">
+                    Explore My Projects <span aria-hidden="true">↗</span>
+                </a>
             </div>
+
             <div class="hero-image">
-                <img src="profile.jpg" alt="Jaira Yvonne A. Watan's profile picture"
-                     onerror="this.style.display='none'; this.parentElement.classList.add('image-placeholder'); this.parentElement.setAttribute('aria-label','Add your profile.png image here');">
+                <img src="profile.jpg"
+                     alt="Jaira Yvonne A. Watan's profile picture"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('image-placeholder'); this.parentElement.setAttribute('aria-label','Add your profile.jpg image here');">
                 <span class="image-placeholder-text" aria-hidden="true">Add profile.jpg</span>
             </div>
         </section>
 
         <section class="section about-section" id="about">
             <div class="section-heading">
-                <h2 data-i18n="aboutTitle">About <span class="accent-text">Me</span></h2>
+                <h2>About <span class="accent-text">Me</span></h2>
             </div>
 
             <div class="about-grid">
                 <article class="about-story panel">
-                   
-                    <h3 data-i18n="storyTitle">My IT Journey</h3>
-                    <p data-i18n="storyText">I chose Information Technology because I am curious about how technology works and how websites and applications are created. IT is important because it helps people communicate, learn, solve problems, and make everyday tasks easier. I want to use what I learn to create useful and accessible digital solutions.</p>
+                    <h3>My IT Journey</h3>
+                    <p>I chose Information Technology because I am curious about how technology works and how websites and applications are created. IT is important because it helps people communicate, learn, solve problems, and make everyday tasks easier. I want to use what I learn to create useful and accessible digital solutions.</p>
+
                     <div class="education-block">
-                        <h3 data-i18n="educationTitle">Educational Background</h3>
+                        <h3>Educational Background</h3>
                         <ul class="timeline">
-                            <li><strong data-i18n="primaryLabel">Primary:</strong> San Antonio South Elementary School</li>
-                            <li><strong data-i18n="secondaryLabel">Secondary:</strong> Lamo National High School</li>
-                            <li><strong data-i18n="tertiaryLabel">College:</strong> Nueva Vizcaya State University – Bambang Campus</li>
-                            <li><strong data-i18n="courseLabel">Program:</strong> BS in Information Technology</li>
-                            <li><strong data-i18n="yearLabel">Year Level:</strong> Second Year</li>
+                            <li><strong>Primary:</strong> San Antonio South Elementary School</li>
+                            <li><strong>Secondary:</strong> Lamo National High School</li>
+                            <li><strong>College:</strong> Nueva Vizcaya State University – Bambang Campus</li>
+                            <li><strong>Program:</strong> BS in Information Technology</li>
+                            <li><strong>Year Level:</strong> Second Year</li>
                         </ul>
                     </div>
                 </article>
@@ -99,18 +101,19 @@
                     <article class="info-card panel">
                         <div class="info-icon" aria-hidden="true">◎</div>
                         <div>
-                            <h3 data-i18n="goalsTitle">My Goals</h3>
-                            <p data-i18n="goalsText">My goal is to become a capable IT professional who can build helpful websites and applications and keep learning as technology changes.</p>
+                            <h3>My Goals</h3>
+                            <p>My goal is to become a capable IT professional who can build helpful websites and applications and keep learning as technology changes.</p>
                         </div>
                     </article>
+
                     <article class="info-card panel">
                         <div class="info-icon" aria-hidden="true">♡</div>
                         <div>
-                            <h3 data-i18n="hobbiesTitle">My Hobbies</h3>
+                            <h3>My Hobbies</h3>
                             <div class="hobby-list">
-                                <span>🎮 <span data-i18n="hobbyGaming">Mobile gaming</span></span>
-                                <span>🍳 <span data-i18n="hobbyCooking">Cooking</span></span>
-                                <span>📺 <span data-i18n="hobbyDrama">Watching K-dramas</span></span>
+                                <span>🎮 Mobile gaming</span>
+                                <span>🍳 Cooking</span>
+                                <span>📺 Watching K-dramas</span>
                             </div>
                         </div>
                     </article>
@@ -120,125 +123,169 @@
 
         <section class="section skills-section" id="skills">
             <div class="section-heading">
-                <h2 data-i18n="skillsTitle">My Skills</h2>
+                <h2>My Skills</h2>
             </div>
+
             <div class="skill-list">
                 <article class="skill-card panel">
-                    
                     <h3>HTML</h3>
-                    <p data-i18n="htmlText">Building the structure of web pages.</p>
+                    <p>Building the structure of web pages.</p>
                 </article>
+
                 <article class="skill-card panel">
                     <div class="skill-icon" aria-hidden="true"></div>
                     <h3>CSS</h3>
-                    <p data-i18n="cssText">Styling websites and creating responsive layouts.</p>
+                    <p>Styling websites and creating responsive layouts.</p>
                 </article>
+
                 <article class="skill-card panel">
                     <div class="skill-icon" aria-hidden="true"></div>
                     <h3>JavaScript</h3>
-                    <p data-i18n="jsText">Adding interaction and functionality to websites.</p>
+                    <p>Adding interaction and functionality to websites.</p>
                 </article>
+
                 <article class="skill-card panel">
                     <div class="skill-icon" aria-hidden="true"></div>
                     <h3>Java</h3>
-                    <p data-i18n="javaText">Practicing programming logic and problem-solving.</p>
+                    <p>Practicing programming logic and problem-solving.</p>
                 </article>
             </div>
         </section>
 
         <section class="section projects-section" id="projects">
             <div class="section-heading">
-                <h2 data-i18n="projectsTitle">My <span class="accent-text">Projects</span></h2>
-               
+                <h2>My <span class="accent-text">Projects</span></h2>
             </div>
 
             <div class="project-list">
                 <article class="project-card panel">
                     <div class="project-preview preview-portfolio" aria-hidden="true"></div>
                     <div class="project-content">
-                        <p class="project-number" data-i18n="projectOneLabel">PROJECT 01</p>
-                        <h3 data-i18n="projectOneTitle">Personal Portfolio Website</h3>
-                        <p data-i18n="projectOneText">A responsive website introducing my background, skills, hobbies, and projects.</p>
-                        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                        
+                        <p class="project-number">PROJECT 01</p>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive website introducing my background, skills, hobbies, and projects.</p>
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
                     </div>
                 </article>
 
                 <article class="project-card panel">
                     <div class="project-preview preview-database" aria-hidden="true"></div>
                     <div class="project-content">
-                        <p class="project-number" data-i18n="projectTwoLabel">PROJECT 02</p>
-                        <h3 data-i18n="projectTwoTitle">Food Ordering App Prototype</h3>
-                        <p data-i18n="projectTwoText">A sample food ordering interface designed to make browsing menu items and choosing orders easier.</p>
-                        <div class="tags"><span>UI/UX</span></div>
-                </div>
+                        <p class="project-number">PROJECT 02</p>
+                        <h3>Food Ordering App Prototype</h3>
+                        <p>A sample food ordering interface designed to make browsing menu items and choosing orders easier.</p>
+                        <div class="tags">
+                            <span>UI/UX</span>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="project-card panel">
                     <div class="project-preview preview-java" aria-hidden="true"></div>
                     <div class="project-content">
-                        <p class="project-number" data-i18n="projectThreeLabel">PROJECT 03</p>
-                        <h3 data-i18n="projectThreeTitle">Java Programming Exercises</h3>
-                        <p data-i18n="projectThreeText">A collection of beginner Java programs for practicing logic, loops, input, and output.</p>
-                        <div class="tags"><span>Java</span><span>Programming</span></div>
-                        
+                        <p class="project-number">PROJECT 03</p>
+                        <h3>Java Programming Exercises</h3>
+                        <p>A collection of beginner Java programs for practicing logic, loops, input, and output.</p>
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>Programming</span>
+                        </div>
                     </div>
                 </article>
             </div>
-            </section>
+        </section>
 
         <section class="section contact-section" id="contact">
             <div class="contact-layout">
                 <div class="contact-copy">
-                    <p class="section-label" data-i18n="contactEyebrow">LET'S CONNECT</p>
-                    <h2 data-i18n="contactTitle">Contact <span class="accent-text">Me</span></h2>
-                    <p data-i18n="contactIntro">Feel free to contact me for questions, collaboration, or opportunities related to Information Technology.</p>
+                    <p class="section-label">LET'S CONNECT</p>
+                    <h2>Contact <span class="accent-text">Me</span></h2>
+                    <p>Feel free to contact me for questions, collaboration, or opportunities related to Information Technology.</p>
 
                     <div class="contact-info">
                         <div class="contact-item">
                             <span class="contact-icon" aria-hidden="true">✉</span>
                             <a href="mailto:wtnyvnn2022@gmail.com">wtnyvnn2022@gmail.com</a>
                         </div>
+
                         <div class="contact-item">
                             <span class="contact-icon" aria-hidden="true">☎</span>
                             <a href="tel:09161698720">09161698720</a>
                         </div>
+
                         <div class="contact-item">
                             <span class="contact-icon" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="22" height="22" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor"
+                                     stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round">
                                     <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
                                     <circle cx="12" cy="10" r="2.5"></circle>
                                 </svg>
                             </span>
-                            <p data-i18n="locationText">Bambang, Nueva Vizcaya, Philippines</p>
+                            <p>Bambang, Nueva Vizcaya, Philippines</p>
                         </div>
                     </div>
-                   
                 </div>
 
                 <form class="contact-form" id="contact-form">
-                    <label for="visitor-name" data-i18n="nameLabel">Your Name</label>
-                    <input id="visitor-name" name="name" type="text" autocomplete="name" required
-                           placeholder="Enter your name" data-i18n-placeholder="namePlaceholder">
+                    <label for="visitor-name">Your Name</label>
+                    <input id="visitor-name" name="name" type="text"
+                           autocomplete="name" required
+                           placeholder="Enter your name">
 
-                    <label for="visitor-email" data-i18n="emailLabel">Your Email</label>
-                    <input id="visitor-email" name="email" type="email" autocomplete="email" required
-                           placeholder="Enter your email" data-i18n-placeholder="emailPlaceholder">
+                    <label for="visitor-email">Your Email</label>
+                    <input id="visitor-email" name="email" type="email"
+                           autocomplete="email" required
+                           placeholder="Enter your email">
 
-                    <label for="visitor-message" data-i18n="messageLabel">Message</label>
-                    <textarea id="visitor-message" name="message" rows="5" required
-                              placeholder="Write your message here..." data-i18n-placeholder="messagePlaceholder"></textarea>
+                    <label for="visitor-message">Message</label>
+                    <textarea id="visitor-message" name="message" rows="5"
+                              required
+                              placeholder="Write your message here..."></textarea>
 
-                    <button class="button submit-button" type="submit" data-i18n="sendMessage">Send Message</button>
-                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-            </form>
+                    <button class="button submit-button" type="submit">
+                        Send Message
+                    </button>
+
+                    <p class="form-status" id="form-status"
+                       role="status" aria-live="polite"></p>
+                </form>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>© <span id="year"></span> Jaira Yvonne A. Watan <span data-i18n="footerText">| Information Technology Student</span></p>
-        <a href="#home" class="back-to-top" data-i18n="backToTop">Back to top ↑</a>
+        <p>© <span id="year"></span> Jaira Yvonne A. Watan | Information Technology Student</p>
+        <a href="#home" class="back-to-top">Back to top ↑</a>
     </footer>
+
+    <script>
+        // Display the current year.
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Show a confirmation when the contact form is submitted.
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            alert("Your message has been submitted!");
+
+            formStatus.textContent = "Your message has been submitted!";
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
