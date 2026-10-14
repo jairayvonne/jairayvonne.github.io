@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         year.textContent = new Date().getFullYear();
     }
 
-    // Setting menu
+    // settings
     if (menuButton && navbar) {
         menuButton.addEventListener("click", () => {
             const isOpen = navbar.classList.toggle("open");
@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 isOpen ? "Close navigation" : "Open navigation"
             );
 
-            const menuIcon = menuButton.querySelector("span");
-            if (menuIcon) {
-                menuIcon.textContent = isOpen ? "✕" : "☰";
+            const icon = menuButton.querySelector("span");
+            if (icon) {
+                icon.textContent = isOpen ? "✕" : "☰";
             }
         });
 
@@ -37,14 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 menuButton.setAttribute("aria-expanded", "false");
                 menuButton.setAttribute("aria-label", "Open navigation");
 
-                const menuIcon = menuButton.querySelector("span");
-                if (menuIcon) {
-                    menuIcon.textContent = "☰";
+                const icon = menuButton.querySelector("span");
+                if (icon) {
+                    icon.textContent = "☰";
                 }
             });
         });
     }
 
+    // SETTINGS DROPDOWN
     function closeSettings() {
         if (!settingsMenu || !settingsButton) return;
 
@@ -65,14 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
-        document.addEventListener("click", (event) => {
-            if (
-                !settingsMenu.contains(event.target) &&
-                !settingsButton.contains(event.target)
-            ) {
-                closeSettings();
-            }
+        settingsMenu.addEventListener("click", (event) => {
+            event.stopPropagation();
         });
+
+        document.addEventListener("click", closeSettings);
 
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape") {
@@ -82,12 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Dark/light mode. Dark mode is the default.
+    if (settingsContact) {
+        settingsContact.addEventListener("click", closeSettings);
+    }
+
+    // DARK AND LIGHT MODE
     function setTheme(lightMode) {
         document.body.classList.toggle("light-mode", lightMode);
 
         if (themeToggle) {
-            themeToggle.setAttribute("aria-checked", String(lightMode));
+            themeToggle.setAttribute(
+                "aria-checked",
+                String(lightMode)
+            );
+
             themeToggle.setAttribute(
                 "aria-label",
                 lightMode ? "Switch to dark mode" : "Switch to light mode"
@@ -106,12 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    let savedTheme = null;
+    let savedTheme = "dark";
 
     try {
-        savedTheme = localStorage.getItem("portfolio-theme");
-    } catch (_) {
-        // The website still works if storage is disabled.
+        savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+    } catch (error) {
+        // Use dark mode if browser storage is unavailable.
     }
 
     setTheme(savedTheme === "light");
@@ -128,49 +134,28 @@ document.addEventListener("DOMContentLoaded", () => {
                     "portfolio-theme",
                     lightMode ? "light" : "dark"
                 );
-            } catch (_) {
+            } catch (error) {
                 // Theme still changes for this page view.
             }
         });
     }
 
-        if (themeToggle) {
-            themeToggle.setAttribute(
-                "aria-label",
-                "Toggle light or dark mode"
-            );
-        }
-
-        try {
-            localStorage.setItem("portfolio-language", "en");
-        } catch (_) {
-            // English remains active for this page view.
-        }
-    }
-
-    setLanguage();
-
-    if (settingsContact) {
-        settingsContact.addEventListener("click", closeSettings);
-    }
-
-    // Highlight the navigation link for the visible section
     const sections = document.querySelectorAll("main section[id]");
     const navLinks = navbar
         ? navbar.querySelectorAll('a[href^="#"]')
         : [];
 
-    if ("IntersectionObserver" in window && navLinks.length) {
+    if ("IntersectionObserver" in window && navLinks.length > 0) {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         navLinks.forEach((link) => {
-                            const active =
+                            const isActive =
                                 link.getAttribute("href") ===
                                 "#" + entry.target.id;
 
-                            link.classList.toggle("active", active);
+                            link.classList.toggle("active", isActive);
                         });
                     }
                 });
@@ -181,30 +166,48 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach((section) => observer.observe(section));
     }
 
-    // Contact 
-if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+   
+    if (contactForm) {
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
 
-        alert("Your message has been submitted.");
+           
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
 
-        contactForm.reset();
-
-        if (formStatus) {
-            formStatus.textContent =
+            const successMessage =
                 "Your message has been submitted.";
-        }
-    });
-}
+            
+            if (formStatus) {
+                formStatus.textContent = successMessage;
+                formStatus.setAttribute("role", "status");
+                formStatus.setAttribute("aria-live", "polite");
+            }
 
-    // Warn about placeholder project links
+            alert(successMessage);
+            contactForm.reset();
+
+            if (formStatus) {
+                formStatus.textContent = successMessage;
+            }
+        });
+    } else {
+        console.error(
+            'Contact form not found. Check that your HTML form has id="contact-form".'
+        );
+    }
+
+    // PROJECT LINKS
     document.querySelectorAll("[data-project-link]").forEach((link) => {
         link.addEventListener("click", (event) => {
             if (link.getAttribute("href") === "#") {
                 event.preventDefault();
 
                 const message =
-"";
+                    "Replace this sample link with your actual project URL first.";
+
                 if (formStatus) {
                     formStatus.textContent = message;
                     formStatus.scrollIntoView({
@@ -217,4 +220,6 @@ if (contactForm) {
             }
         });
     });
+
+    console.log("Portfolio JavaScript loaded successfully.");
 });
