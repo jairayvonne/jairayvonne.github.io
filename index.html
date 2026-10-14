@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="stylestyle.css">
     <script src="jscript.js" defer></script>
 </head>
+
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="header">
         <a href="#home" class="logo">My Personal Portfolio</a>
 
-        <button class="menu-button" id="menu-button" type="button"
-                aria-label="Open navigation" aria-expanded="false"
-                aria-controls="navbar">
+        <button class="menu-button" id="menu-button"
+                type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="navbar">
             <span aria-hidden="true">☰</span>
         </button>
 
@@ -43,7 +44,8 @@
                     <span>Light mode</span>
                     <button class="theme-toggle" id="theme-toggle"
                             type="button" role="switch"
-                            aria-checked="false" aria-label="Toggle light mode">
+                            aria-checked="false"
+                            aria-label="Toggle light mode">
                         <span class="theme-toggle-knob"></span>
                     </button>
                 </div>
@@ -159,25 +161,28 @@
             <div class="project-list">
                 <article class="project-card panel">
                     <div class="project-preview preview-portfolio" aria-hidden="true"></div>
+
                     <div class="project-content">
                         <p class="project-number">PROJECT 01</p>
                         <h3>Personal Portfolio Website</h3>
                         <p>A responsive website introducing my background, skills, hobbies, and projects.</p>
+
                         <div class="tags">
                             <span>HTML</span>
                             <span>CSS</span>
-                            <a
-                               href="login.html"
-                              class="button"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            > 
-                                View LoginPage
-                            </a>
+                            <span>JavaScript</span>
                         </div>
+
+                        <a href="login.html"
+                           class="button"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Login Page ↗
+                        </a>
                     </div>
                 </article>
-
+            </div>
+        </section>
 
         <section class="section contact-section" id="contact">
             <div class="contact-layout">
@@ -200,7 +205,8 @@
                         <div class="contact-item">
                             <span class="contact-icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                     width="22" height="22" viewBox="0 0 24 24"
+                                     width="22" height="22"
+                                     viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor"
                                      stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round">
@@ -246,26 +252,8 @@
     </footer>
 
     <script>
-        // Display the current year.
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // Show a confirmation when the contact form is submitted.
-        const contactForm = document.getElementById("contact-form");
-        const formStatus = document.getElementById("form-status");
-
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
-
-            alert("Your message has been submitted!");
-
-            formStatus.textContent = "Your message has been submitted!";
-            contactForm.reset();
-        });
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
     </script>
 </body>
 </html>
