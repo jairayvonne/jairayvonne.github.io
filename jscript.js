@@ -1,12 +1,16 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const menuButton = document.getElementById("menu-button");
     const navbar = document.getElementById("navbar");
+
     const settingsButton = document.getElementById("settings-button");
     const settingsMenu = document.getElementById("settings-menu");
-    const themeToggle = document.getElementById("theme-toggle");
-    const languageSelect = document.getElementById("language-select");
     const settingsContact = document.getElementById("settings-contact");
+
+    const themeToggle = document.getElementById("theme-toggle");
     const year = document.getElementById("year");
+
     const contactForm = document.getElementById("contact-form");
     const formStatus = document.getElementById("form-status");
 
@@ -14,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         year.textContent = new Date().getFullYear();
     }
 
-    // settings
+    //settings
     if (menuButton && navbar) {
         menuButton.addEventListener("click", () => {
             const isOpen = navbar.classList.toggle("open");
@@ -26,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             const icon = menuButton.querySelector("span");
+
             if (icon) {
                 icon.textContent = isOpen ? "✕" : "☰";
             }
@@ -34,10 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
         navbar.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", () => {
                 navbar.classList.remove("open");
+
                 menuButton.setAttribute("aria-expanded", "false");
                 menuButton.setAttribute("aria-label", "Open navigation");
 
                 const icon = menuButton.querySelector("span");
+
                 if (icon) {
                     icon.textContent = "☰";
                 }
@@ -70,10 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
             event.stopPropagation();
         });
 
-        document.addEventListener("click", closeSettings);
+        document.addEventListener("click", () => {
+            closeSettings();
+        });
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
+            if (event.key === "Escape" && !settingsMenu.hidden) {
                 closeSettings();
                 settingsButton.focus();
             }
@@ -135,12 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     lightMode ? "light" : "dark"
                 );
             } catch (error) {
-                // Theme still changes for this page view.
+                // The theme still changes for the current page.
             }
         });
     }
 
     const sections = document.querySelectorAll("main section[id]");
+
     const navLinks = navbar
         ? navbar.querySelectorAll('a[href^="#"]')
         : [];
@@ -160,44 +170,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             },
-            { rootMargin: "-35% 0px -55% 0px" }
+            {
+                rootMargin: "-35% 0px -55% 0px"
+            }
         );
 
-        sections.forEach((section) => observer.observe(section));
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
     }
 
-   
+    // CONTACT FORM SUBMISSION
     if (contactForm) {
         contactForm.addEventListener("submit", (event) => {
+            // Prevent the page from refreshing.
             event.preventDefault();
 
-           
+            // Check that all required fields are valid.
             if (!contactForm.checkValidity()) {
                 contactForm.reportValidity();
                 return;
             }
 
             const successMessage =
-                "Your message has been submitted.";
-            
+                "Your message has been submitted!";
+
+            // Display a message below the form.
             if (formStatus) {
                 formStatus.textContent = successMessage;
-                formStatus.setAttribute("role", "status");
-                formStatus.setAttribute("aria-live", "polite");
             }
 
+            // Display the confirmation alert.
             alert(successMessage);
-            contactForm.reset();
 
-            if (formStatus) {
-                formStatus.textContent = successMessage;
-            }
+            // Clear the form fields after submission.
+            contactForm.reset();
         });
-    } else {
-        console.error(
-            'Contact form not found. Check that your HTML form has id="contact-form".'
-        );
-    }
+    } 
 
     // PROJECT LINKS
     document.querySelectorAll("[data-project-link]").forEach((link) => {
@@ -210,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (formStatus) {
                     formStatus.textContent = message;
+
                     formStatus.scrollIntoView({
                         behavior: "smooth",
                         block: "nearest"
